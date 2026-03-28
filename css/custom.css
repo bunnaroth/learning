@@ -1,0 +1,267 @@
+/* Custom netflix style design */
+:root {
+    --netflix-red: #E50914; 
+    --dark-bg: #0f172a;                 
+    --card-bg: #1a1f35;
+}
+
+body { 
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar styling */
+.navbar-gradient {
+    background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #16213e 100%);
+    backdrop-filter: blur(10px); 
+    position: relative; 
+}
+
+.navbar-gradient::before {
+    content: ''; 
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    height: 1px; 
+    background: linear-gradient(90deg, transparent, #dc2626, transparent);
+}
+
+.navbar-gradient::after {
+    content: ''; 
+    position: absolute; 
+    bottom: -2px;
+    left: 0; 
+    right: 0; 
+    height: 2px; 
+    background: linear-gradient(90deg, transparent, #ef4444 50%, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-gradient:hover::after {
+    opacity: 1;
+}
+
+/* Logo styling */
+.logo-container {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.logo-text {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; 
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.5));
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.logo-container:hover .logo-text {
+    filter: drop-shadow(0 0 16px rgba(239, 68, 68, 0.8));
+    transform: scale(1.1);
+}
+
+.navbar-title {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #ffffff 0%, #d1d5db 100%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.navbar-gradient:hover .navbar-title {
+    filter: brightness(1.2);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+    0%, 100% {opacity: 1;}
+    50% {opacity: 0.8;}
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e50914; 
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b8070a;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Input styling */
+input[type="text"] {
+    transition: all 0.3s ease;
+    box-shadow: 0 px 6px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3), 0 4px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Placeholde styling */
+input::placeholder {
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+/* Movie grid animations */
+#movieGrid > div {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+#movieGrid > div:nth-child(1) { animation-delay: 0.05s;}
+#movieGrid > div:nth-child(2) { animation-delay: 0.1s;}
+#movieGrid > div:nth-child(3) { animation-delay: 0.15s;}
+#movieGrid > div:nth-child(4) { animation-delay: 0.2s;}
+#movieGrid > div:nth-child(5) { animation-delay: 0.25;}
+#movieGrid > div:nth-child(6) { animation-delay: 0.3;}
+#movieGrid > div:nth-child(7) { animation-delay: 0.35;}
+#movieGrid > div:nth-child(8) { animation-delay: 0.4;}
+
+/* Modal animation */
+#movieModal:not(.hidden) {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-backdrop {
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.95); 
+    }
+    to {
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Close button styling */
+.close-modal-btn {
+    cursor: pointer; 
+    z-index: 10; 
+}
+
+.close-modal-btn:hover {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+}
+
+.close-modal-btn span {
+    display: inline-block; 
+    line-height: 1;
+}
+
+/* Genre button animations */
+#genreFilters > button {
+    animation: slideInLeft 0.4s ease-out backwards; 
+}
+
+#genreFilters > button:nth-child(1) { animation-delay: 0.05s;}
+#genreFilters > button:nth-child(2) { animation-delay: 0.1s;}
+#genreFilters > button:nth-child(3) { animation-delay: 0.15s;}
+#genreFilters > button:nth-child(4) { animation-delay: 0.2s;}
+
+/* Gradient text effect for hero */
+.text-white {
+    letter-spacing: 0.5px;
+}
+
+/* Better shadow for navbar */
+nav {
+    box-shadow: 0 15px 30px rgba(229, 9, 20, 0.15); 
+}
+
+/* Movie card improvment */
+[class*="movieGrid"] > div {
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Image container apsect ratio */
+.aspect-video {
+    aspect-ratio: 16 / 9;
+}
+
+/* Ensure images display properly */
+img[alt] {
+    max-width: 100%; 
+    max-height: 100%; 
+    width: auto; 
+    height: auto;
+}
+
+/* No movies found message */
+.no-movies {
+    grid-column: 1 / -1; 
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Footer styling */
+footer {
+    background: linear-gradient(135deg, #f1172a 0%, #111827 100%);
+    border-top: 1px solid #374151;
+}
+
+/* Responsive adjustment */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+
+    input[type="text"] {
+        padding: 0.75rem !important; 
+        font-size: 0.875rem;
+    }
+}
